@@ -1,0 +1,26 @@
+.delete {
+    text-align: center;
+    display: block;
+}
+
+.delete-id {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.delete-id input {
+    text-align: center;
+    border: 1px solid red;
+    width: 10%;
+    padding: 3px;
+    border-radius: 15px;
+}
+
+.delete-button {
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    touch-action: manipulation;
+}

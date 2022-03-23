@@ -1,0 +1,24 @@
+.Nav {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: rgb(73, 79, 82);
+    color: white;
+}
+
+.nav-links {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: right;
+    list-style: disc;
+}
+
+.link {
+    color: white;
+}
