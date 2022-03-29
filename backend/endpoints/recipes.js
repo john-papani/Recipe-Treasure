@@ -15,10 +15,10 @@ function getAllRecipes(req, res) {
     pool.getConnection((err, connection) => {
         if (err) throw err;
         console.log("connected as id " + connection.threadId);
-        connection.query("SELECT * from main_app_recipe ORDER BY id ASC", (err, rows) => {
+        connection.query("SELECT * from recipes ORDER BY title ASC", (err, rows) => {
             connection.release();
             if (!err) {
-                console.log(rows[0].id);
+                console.log(rows[0].title);
                 res.json(rows)
             } else {
                 console.log(err);

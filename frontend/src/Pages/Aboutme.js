@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/about.css";
+import "../App.css"
 
 function About() {
   return (
@@ -18,7 +18,7 @@ function About() {
       </div>
       <div className="about-me">
         <h2>Check my github repos! :) <br />
-        <a href="https://www.google.com" >Here</a>
+        <a href="https://github.com/john-papani/" >Here</a>
         </h2>
       </div>
     </div>

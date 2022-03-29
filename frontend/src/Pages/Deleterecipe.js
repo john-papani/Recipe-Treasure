@@ -12,8 +12,10 @@ function Delete() {
       })
       .then(() => {
         alert("succesful delete");
+
       })
       .catch((err) => console.log(err));
+
   };
 
   return (

@@ -20,11 +20,11 @@ const Home = () => {
         },
       });
       const data = response.data;
-      console.log(response);
+      console.log(data);
       setRecipes(data);
       //console.log(response.data);
     } catch (err) {
-      console(err.response);
+      console.log(err.response);
     }
   };
 
@@ -37,6 +37,7 @@ const Home = () => {
   useEffect(() => {
     getRecipes();
   }, [query]);
+
 
   const updateSearch = (e) => {
     setSearch(e.target.value);
@@ -67,8 +68,7 @@ const Home = () => {
       <div className="recipes">
         {recipes.map((recipe) => (
           <Recipe
-            key={recipe.id}
-            id={recipe.id}
+            key={recipe.title}
             title={recipe.title}
             img={recipe.image}
             description={recipe.description}

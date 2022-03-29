@@ -1,17 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "../style/upload.css";
-
+import "../App.css"
 function Upload() {
   const [rname, setRname] = useState("");
   const [rdesc, setRdesc] = useState("");
   const [rlink, setRlink] = useState("");
-  const [rid, setRid] = useState("");
 
   const submitRecipe = () => {
     axios
       .post("http://localhost:8000/uploadRecipe", {
-        id: rid,
         title: rname,
         description: rdesc,
         image: rlink,
@@ -19,22 +16,12 @@ function Upload() {
       .then(() => {
         alert("succesful insert");
       });
+      window.location.reload(false);
   };
 
   return (
-    <div className="Upload">
+    <div className="upload">
       <h1>Upload link</h1>
-
-      <div className="id">
-        ID:
-        <input
-          type="text"
-          name="rtitle"
-          onChange={(e) => {
-            setRid(e.target.value);
-          }}
-        />
-      </div>
       <div className="form">
         <label>Recipe Name:</label>
         <input

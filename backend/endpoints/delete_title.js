@@ -3,7 +3,7 @@ const mysql = require("mysql");
 
 var app = express();
 
-function uploadRecipes(req, res) {
+function deleteIDRecipe(req, res) {
     let pool = mysql.createPool({
         connectionLimit: 10,
         host: "localhost",
@@ -11,18 +11,17 @@ function uploadRecipes(req, res) {
         password: "",
         database: "recipes",
     });
-    let title = req.body.title
-    let description = req.body.description
-    let image = req.body.image
-    console.log(title)
+    let title = req.params.title
+
+
     pool.getConnection((err, connection) => {
         if (err) throw err;
         console.log("connected as id " + connection.threadId);
-        connection.query("INSERT INTO recipes (title, description, image) VALUES (?,?,?)", [title, description, image ], (err, rows) => {
-            connection.release()
+        connection.query("DELETE  from recipes WHERE title = ? ", [title], (err, rows) => {
+            connection.release();
             if (!err) {
-                console.log("Upload OK")
-                res.json("OK")
+                console.log(title);
+                res.json(rows)
             } else {
                 console.log(err);
             }
@@ -30,5 +29,5 @@ function uploadRecipes(req, res) {
     });
 }
 
-app.post("/uploadRecipe", uploadRecipes);
-module.exports = app
+app.post("/deleteId/:title", deleteIDRecipe);
+module.exports = app;
